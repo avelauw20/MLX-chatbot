@@ -36,8 +36,9 @@ struct ContentView: View {
 //----Section 2: suggested questions-----------//
     
     private let suggestedQuestions = [
-        " ? ",
-        " ? ",
+        " what can you do? ",
+        " are you planning on taking over the human race? ",
+        " how big is your data center?",  
         //ADD YOUR QUESTIONS BELOW (comma after each one)
    ]
 
@@ -59,9 +60,19 @@ struct ContentView: View {
 
     private var homeView: some View {
         VStack(spacing: 0) {
-//----Section 3: App Icon/sf Symbols-----------//
 
-[Paste here]
+//  SECTION 3: App Icon
+//  COPY & PASTE: Select //section 3 inside your var body { ... }
+//     and REPLACE it with the code below.
+
+// ★ PICK YOUR APP ICON — replace " ? ":
+    Image("engine.combustion")
+        .resizable()
+        .aspectRatio(contentMode: .fit)
+        .frame(width: 84, height: 84)
+        .shadow(radius: 8)
+        .padding(.vertical, 16)
+        .padding(.top, 24)
             
 //----End of Section 3: App Icon/sf Symbols----//
             if vm.messages.isEmpty || !vm.isReady {
@@ -163,9 +174,22 @@ struct ContentView: View {
                 Divider()
                 HStack(alignment: .top, spacing: 16) {
 
-//----Section 4: message box (text)-----------//
-                    
-[Paste here]
+
+
+//  SECTION 4: Prompt/Message Box
+
+// COPYPASTE: Select //Section 4: and REPLACE it with the code below.
+
+              TextField("Tell me something...", text: $vm.input, axis: .vertical)
+                        .textFieldStyle(.plain)
+                        .font(.system(size: 16))
+                        .padding(.horizontal, 24)
+                        .padding(.vertical, 24)
+                        .frame(minHeight: 120, alignment: .topLeading)
+                        .background(RoundedRectangle(cornerRadius: 28).fill(Color.gray.opacity(0.1)))
+                        .overlay(RoundedRectangle(cornerRadius: 28).stroke(Color.gray.opacity(0.3), lineWidth: 1.5))
+                        .lineLimit(1...12)
+                        .disabled(!vm.isReady)
 
 //----End of Section 4: message box (text)----//
 
